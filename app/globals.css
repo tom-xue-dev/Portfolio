@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0b1221;
+  --muted: #9aa7bd;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: radial-gradient(1200px 600px at 70% -10%, rgba(0, 102, 255, 0.15), transparent 60%),
+              radial-gradient(800px 400px at 0% 10%, rgba(0, 255, 170, 0.1), transparent 50%),
+              var(--bg);
+}
+
+.container-page {
+  @apply mx-auto max-w-6xl px-4 sm:px-6 lg:px-8;
+}
+
+.title-gradient {
+  background: linear-gradient(90deg, #fff 0%, #99c4ff 50%, #00ffaa 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.card {
+  @apply rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm shadow-lg shadow-black/20;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-lg bg-brand-500 px-4 py-2 font-medium text-white shadow-md transition hover:bg-brand-400;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center rounded-lg border border-white/10 bg-white/10 px-4 py-2 font-medium text-white transition hover:bg-white/20;
+}
+
+
