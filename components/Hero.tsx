@@ -1,6 +1,32 @@
+"use client";
+
 import Link from 'next/link';
+import { useEffect, useMemo, useState } from 'react';
 
 export default function Hero() {
+  const summaryText = useMemo(
+    () =>
+      `Full-stack developer highly skilled in Python (FastAPI, Celery) and TypeScript (React, Node.js). Proven experienced in building scalable web apps and distributed data systems, integrating relational (Post greSQL) and vector (Milvus) databases. Proficient in API design, containerized deployment with Docker, and CI/CD pipelines (GitHub Actions). Hands-on with cloud platforms (AWS, GCP), delivering production ready, high-performance solutions. Experienced in Agile/Scrum development.`,
+    []
+  );
+
+  const [typed, setTyped] = useState('');
+  const [isDone, setIsDone] = useState(false);
+
+  useEffect(() => {
+    let index = 0;
+    const speedMs = 18; // typing speed per character
+    const intervalId = setInterval(() => {
+      index += 1;
+      setTyped(summaryText.slice(0, index));
+      if (index >= summaryText.length) {
+        clearInterval(intervalId);
+        setIsDone(true);
+      }
+    }, speedMs);
+    return () => clearInterval(intervalId);
+  }, [summaryText]);
+
   return (
     <section className="container-page pt-10 pb-10 md:pt-20 md:pb-16">
       <div className="grid items-center gap-10 md:grid-cols-2">
@@ -9,8 +35,9 @@ export default function Hero() {
           <h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl title-gradient">
             Python • C++ • JS/TS
           </h1>
-          <p className="mt-6 text-lg text-white/80">
-            I build performant web apps, LLM integrations, and systems. Inspired by clean design and reliable engineering.
+          <p className="mt-6 text-lg text-white/80" aria-live="polite">
+            {typed}
+            {!isDone && <span className="typewriter-cursor">|</span>}
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link href="#projects" className="btn-primary">View Projects</Link>
@@ -37,5 +64,6 @@ export default function Hero() {
     </section>
   );
 }
+
 
 
