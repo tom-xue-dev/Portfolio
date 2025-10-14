@@ -13,16 +13,20 @@ const skillGroups: SkillGroup[] = [
     title: 'Core Stack',
     skills: [
       { name: 'Python', emphasis: true },
-      { name: 'C++', emphasis: true },
       { name: 'TypeScript', emphasis: true },
-      { name: 'JavaScript' }
+      { name: 'JavaScript' },
+      { name: 'C++', emphasis: true },
     ]
   },
   {
     title: 'Frontend',
     skills: [
       { name: 'Next.js', emphasis: true },
+      {name: 'html'},
+      {name: 'css'},
+      {name: 'typescript'},
       { name: 'React' },
+      { name: 'React Native' },
       { name: 'Tailwind CSS' }
     ]
   },
@@ -30,6 +34,8 @@ const skillGroups: SkillGroup[] = [
     title: 'Backend',
     skills: [
       { name: 'Node.js' },
+      { name: 'Express' },
+      { name: 'FastAPI' },
       { name: 'REST' },
       { name: 'Web APIs' }
     ]
@@ -37,25 +43,31 @@ const skillGroups: SkillGroup[] = [
   {
     title: 'AI/LLM',
     skills: [
-      { name: 'LLM Integration', emphasis: true },
-      { name: 'Prompt Engineering' }
+      { name: 'RAG', emphasis: true },
+      { name: 'LLM Integration(LangChain, OpenAI, Hugging Face)' },
+      { name:'Vector Database(Milvus)'},
+      { name: 'RF(PPO/DQN),ML(Random Forest, Decision Tree)' }
     ]
   },
   {
     title: 'DevOps & Cloud',
     skills: [
-      { name: 'Vercel', emphasis: true },
-      { name: 'Docker' },
-      { name: 'GitHub Actions' }
+      { name: 'AWS(EC2, S3, RDS,EKS)',emphasis: true },
+      { name: 'Docker', emphasis: true },
+      { name: 'GitHub Actions',emphasis: true },
+      { name: 'Vercel'},
+      { name: 'Git' },
     ]
   },
   {
-    title: 'Tools',
+    title: 'Database',
     skills: [
-      { name: 'Git' },
-      { name: 'VS Code' }
+      { name: 'PostgreSQL', emphasis: true },
+      { name: 'MySQL', emphasis: true },
+      { name: 'MongoDB', emphasis: true },
+      { name: 'Redis', emphasis: true },
     ]
-  }
+  },
 ];
 
 export default function Skills() {
