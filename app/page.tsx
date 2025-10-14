@@ -14,7 +14,7 @@ export default function HomePage() {
 
       <section id="projects" className="container-page py-16">
         <h2 className="text-2xl font-semibold">Projects</h2>
-        <p className="mt-2 text-white/70">Automatically lists your GitHub repos from @tom-xue-dev.</p>
+        <p className="mt-2 text-white/70">GitHub repos.</p>
         <ProjectsList />
       </section>
 
@@ -31,7 +31,7 @@ export default function HomePage() {
       <section id="contact" className="container-page py-16">
         <h2 className="text-2xl font-semibold">Contact</h2>
         <div className="mt-4 flex gap-3">
-          <Link className="btn-primary" href="mailto:your.email@example.com">Email</Link>
+          <Link className="btn-primary" href="mailto:tomxue.coding@gmail.com">Email</Link>
           <Link className="btn-secondary" href="https://github.com/tom-xue-dev" target="_blank" rel="noreferrer">GitHub</Link>
         </div>
       </section>
