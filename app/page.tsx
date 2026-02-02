@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import NavBar from '@/components/NavBar';
 import Hero from '@/components/Hero';
-import ProjectCard from '@/components/ProjectCard';
 import Skills from '@/components/Skills';
+import FeaturedProjects from '@/components/FeaturedProjects';
 
 export default function HomePage() {
   return (
@@ -12,11 +12,7 @@ export default function HomePage() {
 
       <Skills />
 
-      <section id="projects" className="container-page py-16">
-        <h2 className="text-2xl font-semibold">Projects</h2>
-        <p className="mt-2 text-white/70">GitHub repos.</p>
-        <ProjectsList />
-      </section>
+      <FeaturedProjects />
 
       <section id="about" className="container-page py-16">
         <h2 className="text-2xl font-semibold">About</h2>
@@ -37,37 +33,6 @@ export default function HomePage() {
       </section>
       <footer className="container-page py-10 text-center text-white/60">© {new Date().getFullYear()} Yize Xue</footer>
     </main>
-  );
-}
-
-async function fetchRepos() {
-  const res = await fetch('https://api.github.com/users/tom-xue-dev/repos?per_page=12&sort=updated', {
-    // Revalidate every hour on Vercel edge cache
-    next: { revalidate: 3600 },
-    headers: {
-      Accept: 'application/vnd.github+json'
-    }
-  });
-  if (!res.ok) {
-    return [] as any[];
-  }
-  const data = (await res.json()) as any[];
-  return data.filter(r => !r.fork);
-}
-
-async function ProjectsList() {
-  const repos = await fetchRepos();
-  if (!repos || repos.length === 0) {
-    return (
-      <div className="mt-6 text-white/70">No repositories found. Add projects later; this will auto‑populate.</div>
-    );
-  }
-  return (
-    <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {repos.map((repo) => (
-        <ProjectCard key={repo.id} repo={repo} />
-      ))}
-    </div>
   );
 }
 

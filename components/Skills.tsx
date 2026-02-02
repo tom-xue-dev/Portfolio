@@ -14,8 +14,7 @@ const skillGroups: SkillGroup[] = [
     skills: [
       { name: 'Python', emphasis: true },
       { name: 'TypeScript', emphasis: true },
-      { name: 'JavaScript' },
-      { name: 'C++', emphasis: true },
+      { name: 'C#', emphasis: true },
     ]
   },
   {
@@ -73,10 +72,7 @@ const skillGroups: SkillGroup[] = [
 export default function Skills() {
   return (
     <section id="skills" className="container-page py-16">
-      <div className="flex items-center justify-between">
-        <h2 className="text-2xl font-semibold">Skills</h2>
-        <span className="text-sm text-white/60">Focus from SE‑CV</span>
-      </div>
+      <h2 className="text-2xl font-semibold">Skills</h2>
       <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {skillGroups.map((group) => (
           <div key={group.title} className="card p-6">
