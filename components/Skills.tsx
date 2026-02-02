@@ -20,11 +20,9 @@ const skillGroups: SkillGroup[] = [
   {
     title: 'Frontend',
     skills: [
+      { name: 'React', emphasis: true },
       { name: 'Next.js', emphasis: true },
-      {name: 'html'},
-      {name: 'css'},
-      {name: 'typescript'},
-      { name: 'React' },
+      { name: 'TypeScript', emphasis: true },
       { name: 'React Native' },
       { name: 'Tailwind CSS' }
     ]

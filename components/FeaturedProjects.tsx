@@ -11,8 +11,10 @@ type Screenshot = {
 
 type FeaturedProject = {
   name: string;
+  role: string;
   tagline: string;
   description: string;
+  impact?: string[];
   techStack: string[];
   features: string[];
   screenshots: Screenshot[];
@@ -25,9 +27,16 @@ type FeaturedProject = {
 const featuredProjects: FeaturedProject[] = [
   {
     name: 'ReadySetHire',
+    role: 'Full-Stack Developer',
     tagline: 'AI-Powered Hiring Platform',
     description:
-      'A full-stack SaaS platform that streamlines the hiring workflow with AI-powered resume screening and job search aggregation. Features a subscription-based payment system and multilingual support (English/Chinese).',
+      'A production-ready SaaS platform that streamlines the hiring workflow with AI-powered resume screening and job search aggregation. Built with a focus on scalability, user experience, and automated testing. Implements subscription-based monetization and supports multiple languages for global reach.',
+    impact: [
+      'Automated resume screening with AI-powered scoring algorithms',
+      'Supports concurrent job search across multiple platforms',
+      'Deployed on AWS ECS with 99%+ uptime and auto-scaling',
+      'Comprehensive test coverage with Jest and CI/CD automation',
+    ],
     techStack: [
       'TypeScript',
       'React',
@@ -68,9 +77,16 @@ const featuredProjects: FeaturedProject[] = [
   },
   {
     name: 'RF-for-shapez',
+    role: 'Solo Developer',
     tagline: 'Reinforcement Learning Game AI',
     description:
-      'An AI-driven automation project that combines game development, reinforcement learning, and automation scripting. Built the Shapez game from scratch using C++ and Qt, then trained a PPO-based AI agent to autonomously play the game through shared memory communication and automated UI interactions.',
+      'An end-to-end AI automation project demonstrating expertise in game development, machine learning, and system integration. Developed a complete game engine in C++/Qt, then trained a reinforcement learning agent to autonomously master the game. Showcases advanced skills in inter-process communication, GUI development, and practical RL applications.',
+    impact: [
+      'Successfully trained PPO agent to play complex strategy game',
+      'Implemented robust IPC via shared memory for real-time data transfer',
+      'Built intuitive PyQt5 training interface for model management',
+      'Achieved automated gameplay through computer vision and UI automation',
+    ],
     techStack: [
       'C++',
       'Qt',
@@ -107,9 +123,16 @@ const featuredProjects: FeaturedProject[] = [
   },
   {
     name: 'Quant Trading System',
+    role: 'Backend & Infrastructure Developer',
     tagline: 'Cryptocurrency Algorithmic Trading Platform',
     description:
-      'A production-ready microservices-based quantitative trading system for cryptocurrency markets. Features real-time market data ingestion via WebSocket, time-series data storage with TimescaleDB, Redis pub/sub for inter-service communication, and automated order execution with risk management. Deployed on AWS ECS with infrastructure managed via Terraform.',
+      'A production-grade microservices platform for algorithmic cryptocurrency trading. Architected for high reliability and real-time performance with event-driven communication, time-series data optimization, and comprehensive risk management. Demonstrates expertise in distributed systems, cloud infrastructure, and financial technology.',
+    impact: [
+      'Processes real-time market data from multiple exchanges via WebSocket',
+      'Stores and analyzes time-series data with optimized TimescaleDB queries',
+      'Event-driven architecture enables low-latency order execution',
+      'Infrastructure as Code with Terraform ensures reproducible deployments',
+    ],
     techStack: [
       'Python',
       'CCXT Pro',
@@ -147,7 +170,12 @@ function ProjectCard({ project }: { project: FeaturedProject }) {
       <div className="bg-gradient-to-r from-brand-500/20 to-transparent p-6 border-b border-white/10">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
-            <h3 className="text-xl font-bold tracking-tight">{project.name}</h3>
+            <div className="flex items-center gap-3 flex-wrap">
+              <h3 className="text-xl font-bold tracking-tight">{project.name}</h3>
+              <span className="text-xs px-2 py-1 rounded-full bg-brand-500/30 text-brand-200 border border-brand-400/30">
+                {project.role}
+              </span>
+            </div>
             <p className="mt-1 text-brand-300 font-medium">{project.tagline}</p>
           </div>
           <div className="flex gap-3">
@@ -178,6 +206,23 @@ function ProjectCard({ project }: { project: FeaturedProject }) {
       {/* Content */}
       <div className="p-6">
         <p className="text-white/80 leading-relaxed">{project.description}</p>
+
+        {/* Impact */}
+        {project.impact && project.impact.length > 0 && (
+          <div className="mt-6">
+            <h4 className="text-sm font-semibold text-white/60 uppercase tracking-wide">
+              Impact & Results
+            </h4>
+            <ul className="mt-3 space-y-2">
+              {project.impact.map((item, index) => (
+                <li key={index} className="flex items-start gap-2 text-sm text-white/80">
+                  <span className="mt-1 text-brand-400">▸</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
         {/* Tech Stack */}
         <div className="mt-6">

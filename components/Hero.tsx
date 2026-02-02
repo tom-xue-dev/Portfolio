@@ -6,7 +6,7 @@ import { useEffect, useMemo, useState } from 'react';
 export default function Hero() {
   const summaryText = useMemo(
     () =>
-      `Full-stack developer highly skilled in Python (FastAPI, Celery) and TypeScript (React, Node.js). Proven experienced in building scalable web apps and distributed data systems, integrating relational (Post greSQL) and vector (Milvus) databases. Proficient in API design, containerized deployment with Docker, and CI/CD pipelines (GitHub Actions). Hands-on with cloud platforms (AWS, GCP), delivering production ready, high-performance solutions. Experienced in Agile/Scrum development.`,
+      `Full-stack developer highly skilled in Python (FastAPI, Celery) and TypeScript (React, Node.js). Proven experience in building scalable web apps and distributed data systems, integrating relational (PostgreSQL) and vector (Milvus) databases. Proficient in API design, containerized deployment with Docker, and CI/CD pipelines (GitHub Actions). Hands-on with cloud platforms (AWS, GCP), delivering production-ready, high-performance solutions. Experienced in Agile/Scrum development.`,
     []
   );
 
@@ -15,7 +15,7 @@ export default function Hero() {
 
   useEffect(() => {
     let index = 0;
-    const speedMs = 18; // typing speed per character
+    const speedMs = 10; // typing speed per character
     const intervalId = setInterval(() => {
       index += 1;
       setTyped(summaryText.slice(0, index));
@@ -40,23 +40,23 @@ export default function Hero() {
             {!isDone && <span className="typewriter-cursor">|</span>}
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link href="#projects" className="btn-primary">View Projects</Link>
+            <Link href="#featured" className="btn-primary">View Projects</Link>
             <Link href="https://github.com/tom-xue-dev" className="btn-secondary" target="_blank" rel="noreferrer">GitHub</Link>
           </div>
         </div>
         <div className="card p-6">
           <div className="grid grid-cols-3 gap-4 text-center">
             <div>
-              <div className="text-3xl font-bold">3+</div>
-              <div className="text-sm text-white/70">Repos</div>
+              <div className="text-3xl font-bold">3</div>
+              <div className="text-sm text-white/70">Featured Projects</div>
             </div>
             <div>
-              <div className="text-3xl font-bold">12</div>
-              <div className="text-sm text-white/70">Stars</div>
+              <div className="text-3xl font-bold">Full-stack</div>
+              <div className="text-sm text-white/70">Developer</div>
             </div>
             <div>
-              <div className="text-3xl font-bold">Full‑stack</div>
-              <div className="text-sm text-white/70">Python/C++/TS</div>
+              <div className="text-3xl font-bold">AI/Cloud</div>
+              <div className="text-sm text-white/70">Specialist</div>
             </div>
           </div>
         </div>
